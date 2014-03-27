@@ -10,10 +10,10 @@ onlyfiles = [ f for f in listdir('data/person/') if isfile(join('data/person',f)
 people = {}
 for f in onlyfiles:
     with open('data/person/' + f, 'r') as fi:
-        j = ujson.loads(fi.read())
-        lowest_degree = 99999
-        degree_type = ""
         try:
+            j = ujson.loads(fi.read())
+            lowest_degree = 99999
+            degree_type = ""
             for d in j['degrees']:
                 x = d['graduated_year']
                 if x == None:
@@ -33,8 +33,6 @@ for f in onlyfiles:
                     people[f]['age'] += 2
                 elif degree_type == "":
                     degree_type = "NA"
-                else:
-                    people[f]['age'] += 6
 
                 d = degree_type.replace(",","")
                 people[f]['degree_type'] = d
@@ -43,10 +41,8 @@ for f in onlyfiles:
                     if "ounder" in d['title']:
                         companies.append(d['firm']['permalink'])
                 people[f]['companies'] = companies
-                
-                if f == "jeff-jackel.js":
-                    print 
         except Exception as e:
+            print f
             print e
             continue
 
