@@ -1,0 +1,8 @@
+x = read.csv('ages.csv', header=TRUE)
+x$age = as.numeric(x$age)
+x$date = as.numeric(x$date)
+x$age_at_fundraise = as.numeric(x$age_at_fundraise)
+x$amount <- as.numeric(levels(x$amount))
+hist(x$age, main="Age at First Round Raised", xlab="Age")
+mean(x$age)
+median(x$age)

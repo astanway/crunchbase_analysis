@@ -10,7 +10,6 @@ onlyfiles = [ f for f in listdir('data/person/') if isfile(join('data/person',f)
 people = {}
 for f in onlyfiles:
     with open('data/person/' + f, 'r') as fi:
-        print f
         j = ujson.loads(fi.read())
         lowest_degree = 99999
         degree_type = ""
