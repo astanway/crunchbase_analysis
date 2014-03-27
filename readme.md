@@ -1,4 +1,7 @@
 ```
+mkdir data
+mkdir data/person
+mkdir data/company
 python scrape.py
 python get_founder.py
 python distill.py
