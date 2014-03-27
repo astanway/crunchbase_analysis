@@ -23,16 +23,19 @@ for f in onlyfiles:
                     degree_type = d['degree_type']
             if lowest_degree != 99999:
                 people[f] = {'age':(2014 - lowest_degree + 22)}
-                if degree_type in ["MD", "PHD", "PhD", "phd", "Ph.D.", "Ph.D", "Post Graduate"]:
+                if degree_type in ["MD", "Doctoral", "Graduate", "Doctorate", "PHD", "PhD", "phd", "Ph.D.", "Ph.D", "Post Graduate"]:
                     people[f]['age'] += 11
-                if degree_type in ["MBA", "mba"]:
+                elif degree_type in ["MBA", "mba"]:
                     people[f]['age'] += 5
-                if degree_type in ["JD", "jd"]:
+                elif degree_type in ["JD", "jd"]:
                     people[f]['age'] += 5
-                if degree_type in ["MS", "MA", "Masters"]:
+                elif degree_type in ["MS", "MA", "Masters"]:
                     people[f]['age'] += 2
-                if degree_type == "":
+                elif degree_type == "":
                     degree_type = "NA"
+                else:
+                    people[f]['age'] += 6
+
                 d = degree_type.replace(",","")
                 people[f]['degree_type'] = d
                 companies = []
